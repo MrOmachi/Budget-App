@@ -1,11 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  resources :categories do 
+Rails.application.routes.draw do
+  resources :categories do
     resources :purchases
   end
 
-  root "categories#index"
-  
+  root 'categories#index'
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
