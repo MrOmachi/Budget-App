@@ -5,7 +5,22 @@
 # are not: uncommented lines are intended to protect your configuration from
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
-#
+
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      :redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w[html turbo_stream /].include? request_format.to_s
+  end
+end
+
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -14,7 +29,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'aaef536690c1b9945a0c2d4b992d67b30214c3fdeb8a8aef971feb87e404e649b97c1ff527061dd170c72632288eb82caec9df8865a11d035aa28f78c727413c'
+  # config.secret_key = '4b3fb88af938fe123d1c1de038c917fedb361b4e13396b7057cf18e90044b6397210ddba1908a92c82c5dc580f83cc3fb13ed933aaa7d4c056ba5bdb97dea5f5'
+
+  config.parent_controller = 'TurboDeviseController'
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +147,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '6caf377f8ae49ae3264a1b42f7d5e4cc2c3824103756f1127e06231fe44cd9c5613358b7dc927ed713bf238cca590d5132bae20c8cba4d5c5ceaf33ac3145d0a'
+  # config.pepper = 'a6dd015dbd9eaa5662d8e5918b3ed1d492f94057731f2b7329f43246e7ad81a1485f939ea3330c6d0a5389910de3eea594f3b781366bde21a215bffcb40c2132'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
