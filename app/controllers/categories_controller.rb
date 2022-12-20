@@ -22,6 +22,7 @@ class CategoriesController < ApplicationController
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+    @category.user_id = current_user.id
 
     respond_to do |format|
       if @category.save
@@ -66,5 +67,11 @@ class CategoriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:name, :icon, :user_id)
+    end
+
+    def icons
+      { 'Shopping' => 'icon-1.png', 'Education' => 'icon-2.jpg', 'Transportation' => 'icon-3.png',
+        'Food' => 'icon-4.jpg', 'Entertainment' => 'icon-5.png', 'Health' => 'icon-6.jpg',
+        'Bills' => 'icon-7.png', 'Other' => 'icon-8.jpg' }
     end
 end

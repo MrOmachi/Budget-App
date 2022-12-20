@@ -10,11 +10,11 @@
       </ul>
     </div>
   <% end %>
+# ................................
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+<div class="form-outline mb-3">
+<%= form.text_field :name,  required: true,  class:"form-control", placeholder: "Name"%><br>
+</div>
 
   <div>
     <%= form.label :icon, style: "display: block" %>
