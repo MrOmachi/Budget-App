@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :purchases
 
   root "categories#index"
   resources :categories
