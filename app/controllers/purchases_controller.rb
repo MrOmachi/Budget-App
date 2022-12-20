@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases or /purchases.json
   def index
-    @purchases = Purchase.all
+    @purchases = Purchase.where(user_id: current_user.id, category_id: params[:category_id]).order('created_at DESC')
   end
 
   # GET /purchases/1 or /purchases/1.json
@@ -55,7 +55,7 @@ class PurchasesController < ApplicationController
     @purchase.destroy
 
     respond_to do |format|
-      format.html { redirect_to purchases_url, notice: "Purchase was successfully destroyed." }
+      format.html { redirect_to category_purchases_path, notice: "Purchase was successfully destroyed." }
       format.json { head :no_content }
     end
   end

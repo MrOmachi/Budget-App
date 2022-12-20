@@ -1,14 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
+  
+     <%end%>
+<div class="container">
+        <%# <div class="card shadow-2-strong" style="border-radius: 1rem;"> %>
 
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category" %>
-    </p>
-  <% end %>
+<div class="header-contents">
+<h1 class="header">Categories</h1>
+<%= link_to "Add New Category", new_category_path, class: "btn btn-primary add-button"%>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<div id="categories">
+<table class="table">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">Icons</th>
+    <th scope="col">Category</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead>
+<tbody>
+<% @categories.each do |category| %>
+  <%= render category %>
+<% end %>
+
+</tbody>
+
+
+

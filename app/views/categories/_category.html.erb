@@ -1,17 +1,10 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
+ 
+    <tr class="category-table">
+      <td scope="col"><%=image_tag "#{category.icon}", class: "cat-image img" %></td>
+      <td scope="col"><strong><%= link_to category.name , category_purchases_path(category_id: category.id) , class: "nav-link text-black" %><strong></td>
+      <td scope="col"> <%= button_to 'Remove', category_path(category),method: :delete, class: "btn btn-danger" %> </td>
+    </tr>
 
-  <p>
-    <strong>User:</strong>
-    <%= category.user_id %>
-  </p>
 
-</div>
+
