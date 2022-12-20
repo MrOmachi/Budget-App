@@ -10,23 +10,27 @@
       </ul>
     </div>
   <% end %>
-# ................................
+
 
 <div class="form-outline mb-3">
 <%= form.text_field :name,  required: true,  class:"form-control", placeholder: "Name"%><br>
 </div>
 
   <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+    <%= form.select :icon, options_for_select([
+      ['Shopping' , @icons['Shopping']],
+      ['Food' , @icons['Food']],
+      ['Transport' , @icons['Transportation']],
+      ['Entertainment' , @icons['Entertainment']],
+      ['Health' , @icons['Health']],
+      ['Education' , @icons['Education']],
+      ['Bills' , @icons['Bills']],
+      ['Other' , @icons['Other']]
+    ]), {include_blank: 'Select Icon'}, required: true, class: "form-select"
+    %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit "Add Category", class: "btn btn-success"%>
 <% end %>

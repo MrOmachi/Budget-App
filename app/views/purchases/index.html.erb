@@ -6,9 +6,9 @@
   <% @purchases.each do |purchase| %>
     <%= render purchase %>
     <p>
-      <%= link_to "Show this purchase", purchase %>
+      <%= link_to "Show this purchase", category_purchases_path %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New purchase", new_purchase_path %>
+<%= link_to "New purchase", new_category_purchase_path %>

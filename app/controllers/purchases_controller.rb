@@ -21,11 +21,14 @@ class PurchasesController < ApplicationController
 
   # POST /purchases or /purchases.json
   def create
+    @category = Category.find(params[:category_id])
     @purchase = Purchase.new(purchase_params)
+    @purchase.user_id = current_user.id
+    @purchase.category_id = params[:category_id]
 
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to purchase_url(@purchase), notice: "Purchase was successfully created." }
+        format.html { redirect_to category_purchases_path(@category), notice: "Purchase was successfully created." }
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new, status: :unprocessable_entity }
