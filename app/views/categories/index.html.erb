@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+  
+     <%end%>
+<div class="container">
+        <%# <div class="card shadow-2-strong" style="border-radius: 1rem;"> %>
+
+<div class="header-contents">
+<h1 class="header">Categories</h1>
+<%= link_to "Add New Category", new_category_path, class: "btn btn-primary add-button"%>
+</div>
+
+<div id="categories">
+<table class="table">
+<thead class="thead-dark">
+  <tr>
+    <th scope="col">Icons</th>
+    <th scope="col">Category</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead>
+<tbody>
+<% @categories.each do |category| %>
+  <%= render category %>
+<% end %>
+
+</tbody>
+
+
+
