@@ -8,28 +8,26 @@ RSpec.describe Purchase, type: :model do
   end
 
   it 'is valid with valid attributes' do
-     expect(@purchase).to be_valid
-   end
+    expect(@purchase).to be_valid
+  end
 
-   it 'is not valid without a name' do
-     @purchase.name = 'Food'
-     expect(@purchase).to be_valid
-   end
- 
-   it 'is not valid without an amount' do
-     @purchase.amount = 100
-     expect(@purchase).to be_valid
-   end
- 
-   it 'is not valid without a category_id' do
-     @purchase.category_id = nil
-     expect(@purchase).to_not be_valid
-   end
- 
-   it 'is not valid without a user_id' do
-     @purchase.user_id = nil
-     expect(@purchase).to_not be_valid
-   end
+  it 'is not valid without a name' do
+    @purchase.name = 'Food'
+    expect(@purchase).to be_valid
+  end
 
+  it 'is not valid without an amount' do
+    @purchase.amount = 100
+    expect(@purchase).to be_valid
+  end
 
+  it 'is not valid without a category_id' do
+    @purchase.category_id = nil
+    expect(@purchase).to_not be_valid
+  end
+
+  it 'is not valid without a user_id' do
+    @purchase.user_id = nil
+    expect(@purchase).to_not be_valid
+  end
 end

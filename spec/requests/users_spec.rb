@@ -9,9 +9,9 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe '/users/sign_in' do
-     it 'renders the sign in page' do
-       get new_user_session_path
-       expect(response).to have_http_status(200)
-     end
-end
+    it 'renders the sign in page' do
+      get new_user_session_path
+      expect(response).to have_http_status(200)
+    end
+  end
 end
