@@ -1,15 +1,16 @@
 example_id                                | status | run_time        |
 ----------------------------------------- | ------ | --------------- |
-./spec/models/category_spec.rb[1:1]       | passed | 0.11271 seconds |
-./spec/models/category_spec.rb[1:2]       | passed | 0.00355 seconds |
-./spec/models/category_spec.rb[1:3]       | passed | 0.00359 seconds |
-./spec/models/category_spec.rb[1:4]       | passed | 0.00407 seconds |
-./spec/models/purchase_spec.rb[1:1]       | passed | 0.00443 seconds |
-./spec/models/purchase_spec.rb[1:2]       | passed | 0.01113 seconds |
-./spec/models/purchase_spec.rb[1:3]       | passed | 0.00556 seconds |
-./spec/models/purchase_spec.rb[1:4]       | passed | 0.01018 seconds |
-./spec/models/purchase_spec.rb[1:5]       | passed | 0.00452 seconds |
-./spec/models/user_spec.rb[1:1]           | passed | 0.00254 seconds |
-./spec/models/user_spec.rb[1:2]           | passed | 0.00326 seconds |
-./spec/models/user_spec.rb[1:3]           | passed | 0.00351 seconds |
-./spec/requests/categories_spec.rb[1:1:1] | passed | 0.04126 seconds |
+./spec/models/category_spec.rb[1:1]       | passed | 0.00369 seconds |
+./spec/models/category_spec.rb[1:2]       | passed | 0.00423 seconds |
+./spec/models/category_spec.rb[1:3]       | passed | 0.00327 seconds |
+./spec/models/category_spec.rb[1:4]       | passed | 0.00328 seconds |
+./spec/models/purchase_spec.rb[1:1]       | passed | 0.00444 seconds |
+./spec/models/purchase_spec.rb[1:2]       | passed | 0.00473 seconds |
+./spec/models/purchase_spec.rb[1:3]       | passed | 0.17791 seconds |
+./spec/models/purchase_spec.rb[1:4]       | passed | 0.00531 seconds |
+./spec/models/purchase_spec.rb[1:5]       | passed | 0.00644 seconds |
+./spec/models/user_spec.rb[1:1]           | passed | 0.0031 seconds  |
+./spec/models/user_spec.rb[1:2]           | passed | 0.00262 seconds |
+./spec/models/user_spec.rb[1:3]           | passed | 0.00344 seconds |
+./spec/requests/categories_spec.rb[1:1:1] | passed | 0.0045 seconds  |
+./spec/requests/users_spec.rb[1:1:1]      | passed | 0.30248 seconds |
